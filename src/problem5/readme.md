@@ -1,1 +1,0 @@
-Contract deployed on Goerli.
