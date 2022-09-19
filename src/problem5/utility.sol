@@ -8,7 +8,7 @@ interface ERC20 {
 contract utility {
 
     struct TokenBalance {
-        address token;
+        address tokenAddress;
         uint balance;
     }
 
@@ -17,10 +17,10 @@ contract utility {
 
         for (uint i = 0; i < _tokenAddress.length; i++) {
             ERC20 ERC20Contract = ERC20(_tokenAddress[i]);
-            uint tknBalance = ERC20Contract.balanceOf(targetAddress);
-            tokenBalance[i] = TokenBalance({token: _tokenAddress[i], balance: tknBalance});
+            uint balance = ERC20Contract.balanceOf(targetAddress);
+            tokenBalance[i] = TokenBalance(_tokenAddress[i], balance);
         }
-        
+
         return tokenBalance;
     }
 }
